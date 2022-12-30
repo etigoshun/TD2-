@@ -1,9 +1,13 @@
 #pragma once
 
-#include <WorldTransform.h>
-#include <Model.h>
-#include <cassert>]
-#include <Function.h>
+#include "Model.h"
+#include "WorldTransform.h"
+#include "Function.h"
+#include <cassert>
+#include "DebugText.h"
+#include"Input.h"
+#include "MathUtility.h"
+#include "ViewProjection.h"
 
 class Map
 {
@@ -14,6 +18,12 @@ public:		//メンバ関数
 
 	//描画
 	void Draw(const ViewProjection& viewProjection);
+
+
+	enum Mapinfo {
+		NONE, //0
+		BLOCK //1
+	};
 
 public:		//マップ
 
@@ -33,12 +43,13 @@ public:		//マップ
 		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	};
 
 private:	//メンバ変数
 	//ワールド変換データ
 	WorldTransform worldTransform_[15][15] = {};
+	int BlockSize;
 
 	//モデル
 	Model* model_ = nullptr;
@@ -48,5 +59,6 @@ private:	//メンバ変数
 
 	//ファンクション
 	MyFunc myFunc_;
-};
 
+	int block;
+};
