@@ -8,6 +8,7 @@ void RailCamera::Initialize(Vector3& position, Vector3& rotation){
 	debugText_ = DebugText::GetInstance();
 
 	//ワールドトランスフォームの初期設定
+	worldTransform_.Initialize();
 	worldTransform_.translation_ = position;
 	worldTransform_.rotation_ = rotation;
 
@@ -18,9 +19,33 @@ void RailCamera::Initialize(Vector3& position, Vector3& rotation){
 }
 
 void RailCamera::Update(){
-	if (worldTransform_.translation_.z > 0)
-	{
+	if (worldTransform_.translation_.z > 0){
 		ZoomOut(cameraMove);
+	}
+
+	//カメラの位置の移動処理
+	if(input_->PushKey(DIK_UP)) {
+		viewProjection_.eye.y += 0.1;
+	}
+
+	if (input_->PushKey(DIK_DOWN)) {
+		viewProjection_.eye.y -= 0.1;
+	}
+
+	if (input_->PushKey(DIK_RIGHT)) {
+		viewProjection_.eye.x += 0.1;
+	}
+
+	if (input_->PushKey(DIK_LEFT)) {
+		viewProjection_.eye.x -= 0.1;
+	}
+
+	if (input_->PushKey(DIK_Q)) {
+		viewProjection_.eye.z += 0.1;
+	}
+
+	if (input_->PushKey(DIK_E)) {
+		viewProjection_.eye.z -= 0.1;
 	}
 
 	//デバッグ用表示
@@ -38,7 +63,7 @@ void RailCamera::ZoomOut(Vector3 cameraMove){
 	worldTransform_.translation_ += cameraMove;
 
 	//行列の更新
-	myFunc_->UpdateWorldTransform(worldTransform_);
+	myFunc_.UpdateWorldTransform(worldTransform_);
 
 	//カメラ視点座標を設定
 	viewProjection_.eye = worldTransform_.translation_;

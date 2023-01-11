@@ -45,7 +45,7 @@ private:
 	Input* input_ = nullptr;
 
 	//ファンクション
-	MyFunc* myFunc_;
+	MyFunc myFunc_;
 
 	//ワールドトランスフォームの座標の数値を加減算する(移動)
 	Vector3 cameraMove = { 0, 0, 0 };
