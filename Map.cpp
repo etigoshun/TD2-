@@ -6,18 +6,19 @@ void Map::Initialize(Model* model, uint32_t textureHandle) {
 	block = textureHandle;
 	model_ = model;
 
+	//ƒJƒƒ‰‚Ì‰æŠp‚Ì’²®
 	for (int y = 0; y < 15; y++) {
 		for (int x = 0; x < 15; x++) {
 			worldTransform_[y][x].Initialize();
 			worldTransform_[y][x].translation_.x = 2 * x - 10;
-			worldTransform_[y][x].translation_.y = 2 * y - 5;
-			worldTransform_[y][x].translation_.z = -2;
+			worldTransform_[y][x].translation_.y = 2 * y - 15;
+			worldTransform_[y][x].translation_.z = -5;
 			myFunc_.UpdateWorldTransform(worldTransform_[y][x]);
 		}
 	}
 }
 
-void Map::Draw(const ViewProjection& viewProjection) {
+void Map::Draw(ViewProjection& viewProjection) {
 	//3Dƒ‚ƒfƒ‹‚ğ•`‰æ
 	for (int y = 0; y < 15; y++) {
 		for (int x = 0; x < 15; x++) {

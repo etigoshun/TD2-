@@ -20,7 +20,7 @@ public:
 	/// </summary>
 	void Update();
 
-	void ZoomOut(Vector3 CameraMove);
+	void ZoomOut();
 
 	/// <summary>
 	/// ビュープロジェクションを取得
@@ -47,7 +47,7 @@ private:
 	//ファンクション
 	MyFunc myFunc_;
 
-	//ワールドトランスフォームの座標の数値を加減算する(移動)
-	Vector3 cameraMove = { 0, 0, 0 };
+	//カメラ上方向の角度
+	float viewAngle = 0.0f;
 
 };

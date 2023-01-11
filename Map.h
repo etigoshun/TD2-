@@ -17,7 +17,7 @@ public:		//ƒƒ“ƒoŠÖ”
 	void Initialize(Model* model, uint32_t textureHandle);
 
 	//•`‰æ
-	void Draw(const ViewProjection& viewProjection);
+	void Draw(ViewProjection& viewProjection);
 
 
 	enum Mapinfo {
