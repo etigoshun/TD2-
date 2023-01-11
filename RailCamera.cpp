@@ -23,30 +23,6 @@ void RailCamera::Update(){
 		ZoomOut(cameraMove);
 	}
 
-	//カメラの位置の移動処理
-	if(input_->PushKey(DIK_UP)) {
-		viewProjection_.eye.y += 0.1;
-	}
-
-	if (input_->PushKey(DIK_DOWN)) {
-		viewProjection_.eye.y -= 0.1;
-	}
-
-	if (input_->PushKey(DIK_RIGHT)) {
-		viewProjection_.eye.x += 0.1;
-	}
-
-	if (input_->PushKey(DIK_LEFT)) {
-		viewProjection_.eye.x -= 0.1;
-	}
-
-	if (input_->PushKey(DIK_Q)) {
-		viewProjection_.eye.z += 0.1;
-	}
-
-	if (input_->PushKey(DIK_E)) {
-		viewProjection_.eye.z -= 0.1;
-	}
 
 	//デバッグ用表示
 	debugText_->SetPos(50, 50);
@@ -56,9 +32,31 @@ void RailCamera::Update(){
 
 void RailCamera::ZoomOut(Vector3 cameraMove){
 
-	cameraMove.y -= 0.1;
 
-	cameraMove.z -= 0.5;
+	//カメラの位置の移動処理
+	if (input_->PushKey(DIK_UP)) {
+		cameraMove.y += 0.1;
+	}
+
+	if (input_->PushKey(DIK_DOWN)) {
+		cameraMove.y -= 0.1;
+	}
+
+	if (input_->PushKey(DIK_RIGHT)) {
+		cameraMove.x += 0.1;
+	}
+
+	if (input_->PushKey(DIK_LEFT)) {
+		cameraMove.x -= 0.1;
+	}
+
+	if (input_->PushKey(DIK_Q)) {
+		cameraMove.z += 0.1;
+	}
+
+	if (input_->PushKey(DIK_E)) {
+		cameraMove.z -= 0.1;
+	}
 
 	worldTransform_.translation_ += cameraMove;
 
