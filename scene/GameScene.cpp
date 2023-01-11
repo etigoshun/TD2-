@@ -34,6 +34,7 @@ void GameScene::Initialize() {
 
 void GameScene::Update() {
 
+	//カメラの更新
 	newCamera->Update();
 
 }
