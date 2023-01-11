@@ -10,6 +10,7 @@
 #include "ViewProjection.h"
 #include "WorldTransform.h"
 #include "Map.h"
+#include "RailCamera.h"
 
 /// <summary>
 /// ゲームシーン
@@ -49,6 +50,8 @@ class GameScene {
 	DebugText* debugText_ = nullptr;
 	//ビュープロジェクション
 	ViewProjection viewProjection_;
+	//レールカメラ
+	std::unique_ptr<RailCamera> newCamera = std::make_unique<RailCamera>();
 
 	//マップ生成
 	std::unique_ptr<Map> newMap = std::make_unique<Map>();

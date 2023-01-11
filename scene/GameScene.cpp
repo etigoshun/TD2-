@@ -24,9 +24,19 @@ void GameScene::Initialize() {
 
 	//マップの初期化
 	newMap->Initialize(mapModel_, mapTH_);
+
+	//カメラの初期位置を設定
+	Vector3 cameraPos(0, 50, 250);
+	Vector3 cameraRot(0, 0, 0);
+	//レールカメラの初期化
+	newCamera->Initialize(cameraPos, cameraRot);
 }
 
-void GameScene::Update() {}
+void GameScene::Update() {
+
+	newCamera->Update();
+
+}
 
 void GameScene::Draw() {
 
