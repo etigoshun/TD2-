@@ -21,7 +21,7 @@ void Map::Draw(const ViewProjection& viewProjection) {
 	//3Dƒ‚ƒfƒ‹‚ð•`‰æ
 	for (int y = 0; y < 15; y++) {
 		for (int x = 0; x < 15; x++) {
-			if (FirstMap[15][15] == BLOCK) {
+			if (FirstMap[y][x] == BLOCK) {
 				model_->Draw(worldTransform_[y][x], viewProjection, block);
 			}
 		}
