@@ -25,12 +25,16 @@ void RailCamera::Update(){
 	//デバッグ用表示
 	debugText_->SetPos(50, 50);
 	debugText_->Printf("RailCamera pos:(%f, %f, %f)", viewProjection_.eye.x, viewProjection_.eye.y, viewProjection_.eye.z);
+
+	debugText_->SetPos(50, 90);
+	debugText_->Printf("RailCamera up:(%f, %f, %f)", viewProjection_.up.x, viewProjection_.up.y, viewProjection_.up.z);
 	
 }
 
 void RailCamera::ZoomOut(){
 	//ワールドトランスフォームの座標の数値を加減算する(移動)
-	Vector3 cameraMove = { 0, -30.0f, -40.0f };
+	//Vector3 cameraMove = { RadianConversion(90.0f), RadianConversion(45.0f), RadianConversion(-90.0f)};
+	Vector3 cameraMove = {0, 30.0f, 40.0f};
 
 	//カメラの位置の移動処理
 	if (input_->PushKey(DIK_UP)) {
@@ -57,11 +61,6 @@ void RailCamera::ZoomOut(){
 		cameraMove.z -= 0.1;
 	}
 
-	//worldTransform_.translation_ += cameraMove;
-
-	////行列の更新
-	//myFunc_.UpdateWorldTransform(worldTransform_);
-
 	//カメラ視点座標を設定
 	viewProjection_.eye = cameraMove;
 
@@ -85,11 +84,11 @@ void RailCamera::ZoomOut(){
 	if (input_->PushKey(DIK_SPACE)) {
 		viewAngle += kUpRotSpeed;
 		//2πを超えたら0に戻す
-		viewAngle = fmodf(viewAngle, 3.14 * 2.0f);
+		//viewAngle = fmodf(viewAngle, 3.14 * 2.0f);
 	}
 
 	//上方向ベクトルを計算(半径１の円周上の座標)
-	viewProjection_.up = { 0.0f, 1.0f, 0.0f};
+	viewProjection_.up = { 0.0f, -1.0f, 0.0f};
 
 	//ビュープロジェクションを更新
 	viewProjection_.UpdateMatrix();
