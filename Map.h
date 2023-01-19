@@ -9,6 +9,9 @@
 #include "MathUtility.h"
 #include "ViewProjection.h"
 
+/// <summary>
+/// ステージクラス
+/// </summary>
 class Map
 {
 public:		//メンバ関数
