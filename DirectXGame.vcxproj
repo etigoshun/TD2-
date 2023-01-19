@@ -102,14 +102,11 @@
     <ClCompile Include="base\TextureManager.cpp" />
     <ClCompile Include="base\WinApp.cpp" />
     <ClCompile Include="Function.cpp" />
-    <ClCompile Include="LightGroup.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MyMath.cpp" />
-    <ClCompile Include="PointLight.cpp" />
     <ClCompile Include="RailCamera.cpp" />
     <ClCompile Include="scene\GameScene.cpp" />
-    <ClCompile Include="SpotLight.cpp" />
     <ClCompile Include="Useful.cpp" />
   </ItemGroup>
   <ItemGroup>
